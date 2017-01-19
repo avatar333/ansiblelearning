@@ -1,0 +1,5 @@
+- name: This is a test
+  hosts: ansible01
+  tasks:
+    - name: Test connection
+      ping: ansible01
