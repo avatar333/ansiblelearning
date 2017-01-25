@@ -1,7 +1,0 @@
----
-
-- hosts: ansible01
-  name: THIS IS A TEST
-  tasks:
-    - name: Test connection
-      ping: ansible01

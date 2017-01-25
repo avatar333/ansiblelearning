@@ -1,0 +1,7 @@
+---
+- hosts: tstgrp01
+  remote_user: root
+  tasks:
+      lxc-container:
+      name: "{{ item.name }}"
+      state: stopped
