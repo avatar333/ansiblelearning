@@ -2,5 +2,13 @@
 - hosts: ans01
   remote_user: root
   tasks:
-  - name: Ping test 03
-    ping:
+  - name: Enable and start NGINX
+    service: name=nginx.service state=started enabled=yes
+
+- hosts: ans02
+	remote_user: root
+	tasks:
+	- name: Power off a server
+	lxc_container:
+		name: Ansible02_ubuntu:
+		state: stopped
