@@ -1,14 +1,23 @@
 ---
-- hosts: ans01
-  remote_user: root
-  tasks:
-  - name: Enable and start NGINX
-    service: name=nginx.service state=started enabled=yes
+#- hosts: ans01
+#  remote_user: root
+#  tasks:
+#  - name: Enable and start NGINX
+#    service: name=nginx.service state=started enabled=yes
 
-- hosts: ans02
-	remote_user: root
-	tasks:
-	- name: Power off a server
-	lxc_container:
-		name: Ansible02_ubuntu:
-		state: stopped
+- hosts: localhost
+  remote_user: root
+
+  tasks:
+  - name: Power off a server
+    lxc_container:
+      name: Ansible01_fedora
+      state: started
+      when: state=stopped
+
+#   tasks:
+#   - name: Power on a server
+#     lxc_container:
+#       name: Ansible01_fedora
+#       state: stopped
+#       when: state=started
