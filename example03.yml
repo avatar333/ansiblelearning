@@ -2,7 +2,5 @@
 - hosts: tstgrp01
   remote_user: root
   tasks:
-          - name: Ping test
-            ping:
-
-####
+  - name: Ping test
+    ping:
