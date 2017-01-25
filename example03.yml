@@ -1,6 +1,6 @@
 ---
-- hosts: tstgrp01
+- hosts: ans01
   remote_user: root
   tasks:
-  - name: Ping test
+  - name: Ping test 03
     ping:
