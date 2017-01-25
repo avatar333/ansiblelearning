@@ -1,0 +1,6 @@
+---
+- name: Create a new container and clone it
+  lxc_container:
+    name: TEMPLATE_Ubuntu_16.04
+    backing_store: dir
+    clone_name: websvr01
