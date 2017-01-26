@@ -2,6 +2,7 @@
 - hosts: localhost
   vars:
     container_name: websvr02
+    container_path: /hdd2/VMs/lxc
 
   remote_user: root
 
@@ -18,6 +19,9 @@
       template: download
       state: started
       template_options: -d ubuntu -r xenial -a amd64
+    ignore_errors: false
+    tags:
+      - debug
 
 # FOR A FEDORA CONTAINER
 #  - name: Create a started container
@@ -29,3 +33,9 @@
 #      template_options: --release 25
 
 #- name: chroot passwd
+
+#  - name: Instrall nginx
+#    yum: pkg=nginx state=installed
+#    tags:
+#      - nginx
+#      - debug
