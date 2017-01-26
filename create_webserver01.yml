@@ -1,6 +1,31 @@
 ---
-- name: Create a new container and clone it
-  lxc_container:
-    name: TEMPLATE_Ubuntu_16.04
-    backing_store: dir
-    clone_name: websvr01
+- hosts: localhost
+  vars:
+    container_name: websvr02
+
+  remote_user: root
+
+  tasks:
+#  - name: Create a new container and clone it
+#    lxc_container:
+#      name: TEMPLATE_Ubuntu_16.04
+#      backing_store: dir
+#      clone_name: websvr01
+  - name: Create a started container
+    lxc_container:
+      name: "{{ container_name }}"
+      container_log: true
+      template: download
+      state: started
+      template_options: -d ubuntu -r xenial -a amd64
+
+# FOR A FEDORA CONTAINER
+#  - name: Create a started container
+#    lxc_container:
+#      name: websvr01
+##      container_log: true
+#      template: fedora
+#      state: started
+#      template_options: --release 25
+
+#- name: chroot passwd
