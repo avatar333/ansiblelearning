@@ -1,27 +1,36 @@
 ---
 - hosts: localhost
   vars:
-    container_name: websvr02
+    container_name: websvr03
     container_path: /hdd2/VMs/lxc
 
   remote_user: root
 
   tasks:
-#  - name: Create a new container and clone it
-#    lxc_container:
-#      name: TEMPLATE_Ubuntu_16.04
-#      backing_store: dir
-#      clone_name: websvr01
-  - name: Create a started container
+  - name: Create a new container and clone it
     lxc_container:
-      name: "{{ container_name }}"
-      container_log: true
-      template: download
-      state: started
-      template_options: -d ubuntu -r xenial -a amd64
-    ignore_errors: false
-    tags:
-      - debug
+      name: TEMPLATE_Ubuntu_16.04
+      backing_store: dir
+      clone_name: websvr04
+
+#  - name: Create a started container
+#    lxc_container:
+#      name: "{{ container_name }}"
+#      container_log: true
+#      template: download
+#      state: started
+#      template_options: -d ubuntu -r trusty -a amd64
+
+#  - name: waiting
+#    pause: seconds=15
+#      prompt="Shits starting. Wait....."
+
+
+#      /usr/bin/lxc-attach -n websvr02 -- apt-get update && apt-get -y install openssh-server
+
+#    ignore_errors: false
+#    tags:
+#      - debug
 
 # FOR A FEDORA CONTAINER
 #  - name: Create a started container

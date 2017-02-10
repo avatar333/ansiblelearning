@@ -1,0 +1,29 @@
+---
+- hosts: localhost
+  vars:
+    # container_name: Ansible01_fedora
+    container_name: websvr03
+    container_path: /hdd2/VMs/lxc
+
+  remote_user: root
+
+  tasks:
+
+
+  - name: Install openssh-server
+#    lxc_container:
+#      name: "{{ container_name }}"
+#      container_log: true
+#      container_command:  |
+#        /usr/bin/logger TTTTTSTSTS
+    shell: lxc-attach -n {{  container_name }} -- apt-get -f -y install
+    #command: lxc-attach --keep-env -n {{  container_name }} -- apt-get install openssh-server -y
+    #apt-get -y install openssh-server
+
+        #systemctl stop nginx
+
+#    register: lvm_container_info
+
+#  - name: Debug info on container "{{ container_name }}"
+#    debug:
+#      var: lvm_container_info
