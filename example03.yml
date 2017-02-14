@@ -1,10 +1,4 @@
 ---
-#- hosts: ans01
-#  remote_user: root
-#  tasks:
-#  - name: Enable and start NGINX
-#    service: name=nginx.service state=started enabled=yes
-
 - hosts: localhost
   remote_user: root
 
